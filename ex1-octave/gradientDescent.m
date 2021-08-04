@@ -18,18 +18,14 @@ for iter = 1:num_iters
     %
 
 %prev solution
-temp_theta = theta;
-for j = 1:length(theta)
-    
-   temp_theta(j) =  theta(j) - sum((X * theta - y).*X(:, j)) * (alpha / m);
-    
-    
-end
-theta = temp_theta;
+% temp_theta = theta;
+% for j = 1:length(theta)
+%    temp_theta(j) =  theta(j) - sum((X * theta - y).*X(:, j)) * (alpha / m);
+% end
+% theta = temp_theta;
 
-% size(theta)
-% temp = (alpha / m) * sum((X*theta-y).*X)'
-% theta = theta - temp;
+%fully vectorized
+theta = theta - (alpha/m) * (X' * ((X * theta)-y));
 
 
     % ============================================================
